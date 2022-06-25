@@ -11,8 +11,7 @@ import static javax.persistence.FetchType.EAGER;
 // I created 2 methods for not allowing duplicate for email.The second one with @UniqueEmail is stoped.
 @Entity
 @Table(name = "users_data", uniqueConstraints = {
-        @UniqueConstraint(name = "unique_email", columnNames = {"email"})
-})
+        @UniqueConstraint(name = "unique_email", columnNames = {"email"})})
 
 public class UsersData {
     @Id

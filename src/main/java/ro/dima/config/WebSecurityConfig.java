@@ -34,18 +34,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(final HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                //   .antMatchers("/", "/home", "/index", ).permitAll() // putem adauga rute in afara login-ului
-                .anyRequest().authenticated()
+        http.httpBasic()
                 .and()
-                .formLogin()
+                .authorizeRequests()
+                 .antMatchers("/" ).permitAll(); // putem adauga rute in afara login-ului
+               // .anyRequest().permitAll(); //authenticated()
+              /*  .and()
+                .formLogin().permitAll();
                 .loginPage("/login")
                 .permitAll()
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                .permitAll(); */
     }
 
     @Bean
